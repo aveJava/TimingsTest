@@ -3,7 +3,6 @@ import java.io.PrintStream;
 import java.lang.reflect.Method;
 import java.time.LocalTime;
 import java.util.Arrays;
-import java.util.Scanner;
 
 import static java.time.temporal.ChronoUnit.MICROS;
 
@@ -67,7 +66,7 @@ public class Solution {
         long requiredTime;
 
         // получение нужного метода
-        Method method = Tested_methods.class.getMethod("method1", String.class);
+        Method method = TestedMethods.class.getMethod("method1", String.class);
         method.setAccessible(true);
 
         String description = name + ". Отрабатывает в среднем за:";
@@ -75,7 +74,7 @@ public class Solution {
 
         startTime = LocalTime.now();
         for (int i = 0; i < it; i++) {
-            method.invoke(new Tested_methods(), controlString1);
+            method.invoke(new TestedMethods(), controlString1);
         }
         endTime = LocalTime.now();
         requiredTime = MICROS.between(startTime, endTime);
@@ -83,7 +82,7 @@ public class Solution {
 
         startTime = LocalTime.now();
         for (int i = 0; i < it; i++) {
-            method.invoke(new Tested_methods(), controlString2);;
+            method.invoke(new TestedMethods(), controlString2);;
         }
         endTime = LocalTime.now();
         requiredTime = MICROS.between(startTime, endTime);
@@ -91,7 +90,7 @@ public class Solution {
 
         startTime = LocalTime.now();
         for (int i = 0; i < it; i++) {
-            method.invoke(new Tested_methods(), controlString3);
+            method.invoke(new TestedMethods(), controlString3);
         }
         endTime = LocalTime.now();
         requiredTime = MICROS.between(startTime, endTime);
@@ -101,11 +100,11 @@ public class Solution {
         // чтобы знать, что методы действительно отрабатывают и какой результат они выдают
         System.setOut(out);
         System.out.printf("\n\nРезультат работы метода %s для строки 1:\n", name);
-        method.invoke(new Tested_methods(), controlString1);
+        method.invoke(new TestedMethods(), controlString1);
         System.out.printf("\n\nРезультат работы метода %s для строки 2:\n", name);
-        method.invoke(new Tested_methods(), controlString2);
+        method.invoke(new TestedMethods(), controlString2);
         System.out.printf("\n\nРезультат работы метода %s для строки 3:\n", name);
-        method.invoke(new Tested_methods(), controlString3);
+        method.invoke(new TestedMethods(), controlString3);
         System.setOut(newOut);
 
         return sb;
