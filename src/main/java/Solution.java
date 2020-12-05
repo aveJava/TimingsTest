@@ -33,11 +33,11 @@ public class Solution {
     /** Данный метод является входом в проект - именно его нужно запускать */
     public static void main(String[] args) throws Exception {
         // проведение тестов и получение отчетов в виде StringBuilder
-        StringBuilder sb1 = test("method1", "Вариант №1, через составление карты", 100);
-        StringBuilder sb2 = test("method2", "Вариант №2, через метод replaceAll", 100);
-        StringBuilder sb3 = test("method3", "Вариант №3, через indexOf() и lastIndexOf()", 100);
-        StringBuilder sb4 = test("method4", "Вариант №4, через RegEx", 100);
-        StringBuilder sb5 = test("method5", "Вариант №5, через Stream API", 100);
+        StringBuilder sb1 = test("method1", "Вариант №1, через составление карты", 10000);
+        StringBuilder sb2 = test("method2", "Вариант №2, через метод replaceAll", 10000);
+        StringBuilder sb3 = test("method3", "Вариант №3, через indexOf() и lastIndexOf()", 10000);
+        StringBuilder sb4 = test("method4", "Вариант №4, через RegEx", 10000);
+        StringBuilder sb5 = test("method5", "Вариант №5, через Stream API", 10000);
         StringBuilder sb = sb1.append(sb2).append(sb3).append(sb4).append(sb5);
 
         // возвращение вывода на консоль

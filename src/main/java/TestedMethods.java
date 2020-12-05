@@ -64,12 +64,17 @@ public class TestedMethods
     public static String method4(String line){
         StringBuilder builder = new StringBuilder();
         for (char c : line.toCharArray()) {
-            if (!Character.isAlphabetic(c)) {
-                continue;
-            }
-            if (Pattern.compile("^[^" + c + "]*" + c + "[^" + c + "]*$").matcher(line).find()) {
-                System.out.println(c);
-                builder.append( c );
+            String a = String.valueOf(c);
+            String b = a;
+            try {
+                if (Pattern.compile("^[^" + a + "]*" + b + "[^" + a + "]*$").matcher(line).find()) {
+                    System.out.println(c);
+                    builder.append( c );
+                }
+            } catch (Exception e) {
+                String message = String.format("Ошибка! \nКод полетел из-за того, что в методе method4 " +
+                        "класса TestedMethods не был проэкранирован символ \"%s\"", c);
+                throw new Error(message);
             }
         }
         return builder.toString();
